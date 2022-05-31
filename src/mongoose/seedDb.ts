@@ -1,6 +1,6 @@
 import {CarModel} from '../model/CarModel.model'
 import { ICar } from "../schema/schemaCar"
-import { IAvailableTimes } from "../schema/schemaAvailableTimes"
+import { AvTime, IAvailableTimes } from "../schema/schemaAvailableTimes"
 import {AvailableTimesModel} from '../model/AvailableTimesModel.model'
 import { UserModel } from '../model/UserModel.model';
 import { IUser } from '../schema/schemaUser';
@@ -47,10 +47,10 @@ export const addCars = async()=>{
 }
 
 export const addAvailableTimes = async()=>{
-    const availableHours=[]
-    const AvTime = {startHour: 6 , endHour: 24}
+    let availableHours:AvTime[][]=[]
     for (let i = 0; i<=10; i++){
-        availableHours.push(AvTime)
+        availableHours[i]=[]
+        availableHours[i].push({startHour: "6:00" , endHour: "24:00"})
     }
     let defaultAvailable : IAvailableTimes = {
         date: new Date(),

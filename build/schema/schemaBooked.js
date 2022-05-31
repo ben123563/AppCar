@@ -9,8 +9,8 @@ exports.BookedSchema = new mongoose_1.Schema({
         ref: "Car",
     },
     date: {
-        start: { type: mongoose_1.Schema.Types.Date, required: true },
-        end: { type: mongoose_1.Schema.Types.Date, required: true },
+        start: String,
+        end: String,
     },
     user: {
         type: mongoose_1.Schema.Types.ObjectId,

@@ -1,15 +1,15 @@
 import { Schema, model, connect, PopulatedDoc, Types } from 'mongoose';
 import { ICar } from './schemaCar';
 
-type AvTime=
+export type AvTime=
 {
-  startHour:number,
-  endHour:number
+  startHour:String,
+  endHour:String
 }
 export interface IAvailableTimes {
   date: Date,
   cars:Types.ObjectId[]
-  availableHours:AvTime[]
+  availableHours:AvTime[][]
 }
 export const availableTimesSchema = new Schema<IAvailableTimes>({
   date: Schema.Types.Date,
@@ -18,10 +18,7 @@ export const availableTimesSchema = new Schema<IAvailableTimes>({
         ref: "Car",
       },
   ],
-  availableHours:[
-    {
-      startHour: String,
-      endHour: String,
-    },
-  ] 
+  availableHours:[[{startHour:String,endHour:String}
+    
+  ]]
 });
